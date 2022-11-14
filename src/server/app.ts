@@ -1,7 +1,7 @@
 import cors from "cors";
 import express from "express";
 import morgan from "morgan";
-import endpointError, { generalError } from "./middlewares/errors/errors.js";
+import { endpointError, generalError } from "./middlewares/errors/errors.js";
 
 import usersRouters from "./routes/usersRouters.js";
 
