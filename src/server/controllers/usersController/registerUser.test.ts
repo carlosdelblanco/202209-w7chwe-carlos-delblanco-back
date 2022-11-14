@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 import User from "../../../database/models/User";
 import type { RegisterData } from "../../types";
-import { registerUser } from "./usersController";
+import { registerUser } from "./registerUser";
 
 const res: Partial<Response> = { status: jest.fn(), json: jest.fn() };
 const next = jest.fn();
