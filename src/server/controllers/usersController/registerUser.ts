@@ -1,8 +1,8 @@
 import bcrypt from "bcryptjs";
 import type { NextFunction, Request, Response } from "express";
-import CustomError from "../../../CustomError/CustomError";
-import User from "../../../database/models/User";
-import type { RegisterData } from "../../types";
+import CustomError from "../../../CustomError/CustomError.js";
+import User from "../../../database/models/User.js";
+import type { RegisterData } from "../../types.js";
 
 export const registerUser = async (
   req: Request,
@@ -29,3 +29,5 @@ export const registerUser = async (
     next(generalError);
   }
 };
+
+export default registerUser;
