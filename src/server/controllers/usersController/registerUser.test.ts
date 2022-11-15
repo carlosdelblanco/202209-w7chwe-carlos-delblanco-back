@@ -28,3 +28,24 @@ describe("Given a register controller", () => {
     });
   });
 });
+
+describe("When it receives a request with username 'carlos', password 'qwerty', and email 'carlos@carlos.com' which already exists", () => {
+  test("Then it should call the next function with a CustomError", async () => {
+    const user: RegisterData = {
+      username: "Carlos",
+      password: "qwerty",
+      email: "carlos@carlos.com",
+    };
+
+    const req: Partial<Request> = {
+      body: user,
+    };
+    const error = new Error("Already exists");
+
+    User.create = jest.fn().mockRejectedValue(error);
+
+    await registerUser(req as Request, res as Response, next as NextFunction);
+
+    expect(next).toHaveBeenCalledWith(error);
+  });
+});
